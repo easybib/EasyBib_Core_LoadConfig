@@ -1,0 +1,5 @@
+<phpunit colors="true" debug="false" bootstrap="./tests/TestInit.php">
+    <testsuite name="LoadConfig">
+        <file>./tests/EasyBib/Core/Test/LoadConfigTest.php</file>
+    </testsuite>
+</phpunit>
