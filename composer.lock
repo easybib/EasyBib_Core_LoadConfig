@@ -1,0 +1,11 @@
+{
+    "hash": "de805fa5b228d34561a424cc46dcdf5f",
+    "packages": [
+        {
+            "package": "Zend",
+            "version": "1.11.11"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": []
+}
