@@ -46,6 +46,11 @@ class LoadConfigTest extends \PHPUnit_Framework_TestCase
         unset($this->ezConfig);
     }
 
+    /**
+     * Load  configuration from 'app/modules/bar/configs/redis.ini'.
+     *
+     * @return void
+     */
     public function testRedisConf()
     {
         $this->assertInstanceOf('EasyBib\Core\LoadConfig', $this->ezConfig->setConfigDir('configs'));
@@ -65,6 +70,21 @@ class LoadConfigTest extends \PHPUnit_Framework_TestCase
     {
         $config = $this->ezConfig->load();
         $this->assertFalse($config);
+    }
+
+    /**
+     * Load app/etc/couchdb.ini
+     *
+     * @return void
+     */
+    public function testDefault()
+    {
+        $config = $this->ezConfig->setEnvironment('testing')->setFile('couchdb.ini')->load();
+        $this->assertInstanceOf('\Zend_Config_Ini', $config);
+
+        $this->assertEquals('bigcouch', $config->host);
+        $this->assertEquals('http', $config->scheme);
+        $this->assertEquals('5784', $config->port);
     }
 
     /**
