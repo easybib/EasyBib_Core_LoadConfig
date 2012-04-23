@@ -118,8 +118,7 @@ $package->addPackageDepWithChannel(
 );
 
 $package->addExtensionDep('required', 'spl');
-$package->addExtensionDep('required', 'memcache');
-$package->addExtensionDep('required', 'mysqli');
+$package->addExtensionDep('required', 'apc');
 $package->setPearInstallerDep('1.9.4');
 $package->generateContents();
 
