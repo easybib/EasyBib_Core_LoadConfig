@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>EasyBib_Core_LoadConfig</name>
+ <channel>easybib.github.com/pear</channel>
+ <summary>A configuration loader for Zend Framework (1).</summary>
+ <description>See README.md!</description>
+ <lead>
+  <name>Till Klampaeckel</name>
+  <user>till</user>
+  <email>till@lagged.biz</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-04-23</date>
+ <time>15:33:50</time>
+ <version>
+  <release>0.5.0</release>
+  <api>0.5.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+ <notes>
+Initial release.
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="src">
+    <dir name="EasyBib">
+     <dir name="Core">
+      <file baseinstalldir="/" name="LoadConfig.php" role="php">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /src/EasyBib/Core -->
+    </dir> <!-- /src/EasyBib -->
+   </dir> <!-- /src -->
+   <dir name="tests">
+    <dir name="EasyBib">
+     <dir name="Core">
+      <dir name="Test">
+       <file baseinstalldir="/" name="LoadConfigTest.php" role="test" />
+      </dir> <!-- /tests/EasyBib/Core/Test -->
+     </dir> <!-- /tests/EasyBib/Core -->
+    </dir> <!-- /tests/EasyBib -->
+    <dir name="fixtures">
+     <dir name="app">
+      <dir name="etc">
+       <file baseinstalldir="/" name="couchdb.ini" role="test" />
+      </dir> <!-- /tests/fixtures/app/etc -->
+      <dir name="modules">
+       <dir name="bar">
+        <dir name="configs">
+         <file baseinstalldir="/" name="redis.ini" role="test" />
+        </dir> <!-- /tests/fixtures/app/modules/bar/configs -->
+       </dir> <!-- /tests/fixtures/app/modules/bar -->
+       <dir name="foo">
+        <dir name="etc">
+         <file baseinstalldir="/" name="config.ini" role="test" />
+        </dir> <!-- /tests/fixtures/app/modules/foo/etc -->
+       </dir> <!-- /tests/fixtures/app/modules/foo -->
+      </dir> <!-- /tests/fixtures/app/modules -->
+     </dir> <!-- /tests/fixtures/app -->
+    </dir> <!-- /tests/fixtures -->
+    <file baseinstalldir="/" name="TestInit.php" role="test" />
+   </dir> <!-- /tests -->
+   <file baseinstalldir="/" name="README.md" role="doc" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.9.4</min>
+   </pearinstaller>
+   <extension>
+    <name>spl</name>
+   </extension>
+   <extension>
+    <name>memcache</name>
+   </extension>
+   <extension>
+    <name>mysqli</name>
+   </extension>
+  </required>
+  <optional>
+   <package>
+    <name>ZF</name>
+    <channel>pear.zfcampus.org</channel>
+    <min>1.11.11</min>
+   </package>
+  </optional>
+ </dependencies>
+ <phprelease>
+  <filelist>
+   <install as="EasyBib/Core/LoadConfig.php" name="src/EasyBib/Core/LoadConfig.php" />
+  </filelist>
+ </phprelease>
+ <changelog>
+  <release>
+   <version>
+    <release>0.5.0</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-04-23</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+Initial release.
+   </notes>
+  </release>
+ </changelog>
+</package>
