@@ -108,7 +108,7 @@ class LoadConfigTest extends \PHPUnit_Framework_TestCase
         }
         $this->ezConfig->setEnvironment('production');
         $this->ezConfig->setFile('config.ini');
-        $this->ezConfig->setModule('impexport');
+        $this->ezConfig->setModule('foo');
 
         $key = $this->ezConfig->getApcKey();
         $this->assertNotEmpty($key);
@@ -130,7 +130,7 @@ class LoadConfigTest extends \PHPUnit_Framework_TestCase
         }
         $this->ezConfig->setEnvironment('production');
         $this->ezConfig->setFile('config.ini');
-        $this->ezConfig->setModule('impexport');
+        $this->ezConfig->setModule('foo');
 
         $key = $this->ezConfig->getApcKey();
         \apc_delete($key);
