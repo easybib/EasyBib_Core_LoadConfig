@@ -108,7 +108,7 @@ foreach ($files as $file) {
     $package->addInstallAs($file2, str_replace('src/', '', $file2));
 }
 
-$package->setPhpDep('5.2.0');
+$package->setPhpDep('5.3.0');
 
 $package->addPackageDepWithChannel(
     'optional',

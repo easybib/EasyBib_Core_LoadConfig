@@ -22,6 +22,7 @@ namespace EasyBib\Core;
  * @category Configuration
  * @package  LoadConfig
  * @author   Till Klampaeckel <till@lagged.biz>
+ * @author   Darshan Somashekar <darshan@imagineeasy.com>
  * @license  http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @version  Release: @package_version@
  * @link     http://www.easybib.com
