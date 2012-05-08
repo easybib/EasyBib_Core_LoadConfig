@@ -12,7 +12,7 @@ If no environment is set, `production` is assumed which also caches configuratio
 ## Requirements
 
  * PHP 5.3+
- * Zend Framework (1.x)
+ * Zend Framework (1.11.11+)
  * APC
 
 **Please note:** The only Zend Framework component used is `\Zend_Config_Ini` (and its dependencies).
