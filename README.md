@@ -1,5 +1,7 @@
 # EasyBib\_Core\_LoadConfig
 
+[![Build Status](https://secure.travis-ci.org/easybib/EasyBib_Core_LoadConfig.png?branch=master)](http://travis-ci.org/easybib/EasyBib_Core_LoadConfig)
+
 A wrapper around `\Zend_Config_Ini` to load module configuration throughout our application.
 
 We don't run a giant `application.ini` for all settings and instead distribute configuration along with the module in
