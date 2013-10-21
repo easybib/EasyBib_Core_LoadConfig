@@ -1,5 +1,5 @@
 {
-    "hash": "5d437982080642e492f46bea556a617c",
+    "hash": "b848dc882b6bdac29be54bc43b4e270f",
     "packages": [
         {
             "package": "Zend",
@@ -7,5 +7,7 @@
         }
     ],
     "packages-dev": null,
-    "aliases": []
+    "aliases": [
+
+    ]
 }

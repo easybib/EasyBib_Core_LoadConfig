@@ -30,33 +30,21 @@ namespace EasyBib\Core;
  */
 class LoadConfig
 {
-    /**
-     * The environment.
-     * @var string
-     */
+    /** @var string Default production */
     protected $environment = 'production';
 
-    /**
-     * Configuration file to load.
-     * @var string
-     */
+    /** @var string Configuration file name to load. */
     protected $file;
 
-    /**
-     * Name of the module to load it from.
-     * @var string
-     */
+    /** @var string Name of application module with config file. */
     protected $module;
 
-    /**
-     * The directory where configuration files are located.
-     * @var string
-     */
+    /** @var string The directory where module config files are located. */
     protected $configDir = 'etc';
 
     /**
      * @param string $file   The configuration file, e.g. redis.ini.
-     * @param string $module The module to load it from.
+     * @param string $module Default = 'default' Application module.
      *
      * @return \Easybib\Core\LoadConfig
      */
@@ -92,14 +80,15 @@ class LoadConfig
     }
 
     /**
-     * Load the config.
+     * Sets path & reads config file.
      *
+     * @param string $path Default null. Dir of config file
+     * 
      * @return \Zend_Config_Ini
      * @throws \RuntimeException When stuff goes wrong.
      */
-    public function load()
+    public function load($path = null)
     {
-        static $path = null;
         if ($path === null) {
             if (defined('APPLICATION_PATH')) {
                 $path = APPLICATION_PATH;
@@ -113,13 +102,14 @@ class LoadConfig
         /**
          * @desc In all environments but 'production', we assume false.
          */
-        if ($this->environment == 'production') {
+        if ($this->environment === 'production') {
+            $success = false;   //suppress uninit warnings
             $config = \apc_fetch($apcKey, $success);
         } else {
             $success = false;
         }
         if ($success === true
-            && $this->environment == 'production'
+            && $this->environment === 'production'
             && ($config instanceof \Zend_Config_Ini)
         ) {
             return $config;
@@ -133,7 +123,7 @@ class LoadConfig
                 $this->environment,
                 array('allowModifications' => true)
             );
-            if ($this->environment == 'production') {
+            if ($this->environment === 'production') {
                 apc_store($apcKey, $config);
             }
             return $config;
@@ -144,8 +134,8 @@ class LoadConfig
     }
 
     /**
-     * Save, in case the instance/config gets altered, we can save it into the APC
-     * backend.
+     * Save, in case the instance/config gets altered, we can save it into the
+     * APC backend.
      *
      * @param \Zend_Config_Ini $config
      *
@@ -154,16 +144,16 @@ class LoadConfig
      */
     public function save(\Zend_Config_Ini $config)
     {
-        if ($this->environment == 'production') {
+        if ($this->environment === 'production') {
             \apc_store($this->generateKey(), $config);
         }
         return $this;
     }
 
     /**
-     * Set the configuration directory (some use 'etc', some use 'configs')
+     * Set the config file directory (some use 'etc', some use 'configs')
      *
-     * @param string $directory
+     * @param string $directory Default 'etc'
      *
      * @return $this
      */
@@ -179,7 +169,7 @@ class LoadConfig
     /**
      * Set the environment for the config file.
      *
-     * @param string $environment
+     * @param string $environment production | development | testing
      *
      * @return $this
      * @throws InvalidArgumentException on empty environment
@@ -194,9 +184,9 @@ class LoadConfig
     }
 
     /**
+     * Set config file name
      *
-     *
-     * @param string
+     * @param string filename
      * 
      * @return $this
      */
@@ -207,7 +197,7 @@ class LoadConfig
     }
 
     /**
-     *
+     * Modify module set in constructor
      *
      * @param string
      * 
@@ -220,11 +210,9 @@ class LoadConfig
     }
 
     /**
+     * Unique key for APC cache
      *
-     *
-     * @param string
-     * 
-     * @return string
+     * @return string key
      */
     protected function generateKey()
     {
@@ -239,16 +227,11 @@ class LoadConfig
      */
     protected function getFSpath()
     {
-        $path = '';
-        if ($this->module == 'default') {
-            $path .= '/' . $this->configDir;
+        if ($this->module === 'default') {
+            $path = '/' . $this->configDir;
         } else {
-            $path .= sprintf(
-                '/modules/%s/%s',
-                $this->module,
-                $this->configDir
-            );
+            $path = '/modules/' . $this->module . '/' . $this->configDir;
         }
-        return sprintf('%s/%s', $path, $this->file);
+        return $path . '/' . $this->file;
     }
 }
