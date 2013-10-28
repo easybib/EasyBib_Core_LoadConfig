@@ -30,16 +30,24 @@ namespace EasyBib\Core;
  */
 class LoadConfig
 {
-    /** @var string Default production */
+    /**
+     *  @var string Default production
+     */
     protected $environment = 'production';
 
-    /** @var string Configuration file name to load. */
+    /**
+     * @var string Configuration file name to load.
+     */
     protected $file;
 
-    /** @var string Name of application module with config file. */
+    /**
+     * @var string Name of application module with config file.
+     */
     protected $module;
 
-    /** @var string The directory where module config files are located. */
+    /**
+     * @var string The directory where module config files are located.
+     */
     protected $configDir = 'etc';
 
     /**
@@ -83,7 +91,7 @@ class LoadConfig
      * Sets path & reads config file.
      *
      * @param string $path Default null. Dir of config file
-     * 
+     *
      * @return \Zend_Config_Ini
      * @throws \RuntimeException When stuff goes wrong.
      */
@@ -187,7 +195,7 @@ class LoadConfig
      * Set config file name
      *
      * @param string filename
-     * 
+     *
      * @return $this
      */
     public function setFile($file)
@@ -200,7 +208,7 @@ class LoadConfig
      * Modify module set in constructor
      *
      * @param string
-     * 
+     *
      * @return $this
      */
     public function setModule($module)
