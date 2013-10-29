@@ -240,7 +240,8 @@ class LoadConfig
             $path .= '/' . $this->configDir;
             //return '/' . $this->configDir . '/' . $this->file;    //new coding style under consideration
         } else {
-            //return '/modules/' . $this->module . '/' . $this->configDir . '/' . $this->file;    //new coding style under consideration
+            //new coding style under consideration
+            //return '/modules/' . $this->module . '/' . $this->configDir . '/' . $this->file;
             $path .= sprintf(
                 '/modules/%s/%s',
                 $this->module,
