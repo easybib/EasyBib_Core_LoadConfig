@@ -247,6 +247,6 @@ class LoadConfig
                 $this->configDir
             );
         }
-        return $path . '/' . $this->file;
+        return sprintf('%s/%s', $path, $this->file);
     }
 }
