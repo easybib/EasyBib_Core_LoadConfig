@@ -235,10 +235,17 @@ class LoadConfig
      */
     protected function getFSpath()
     {
+        $path = '';
         if ($this->module === 'default') {
-            $path = '/' . $this->configDir;
+            $path .= '/' . $this->configDir;
+            //return '/' . $this->configDir . '/' . $this->file;    //new coding style under consideration
         } else {
-            $path = '/modules/' . $this->module . '/' . $this->configDir;
+            //return '/modules/' . $this->module . '/' . $this->configDir . '/' . $this->file;    //new coding style under consideration
+            $path .= sprintf(
+                '/modules/%s/%s',
+                $this->module,
+                $this->configDir
+            );
         }
         return $path . '/' . $this->file;
     }
