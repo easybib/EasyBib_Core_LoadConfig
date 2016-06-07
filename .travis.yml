@@ -1,7 +1,5 @@
 language: php
-before_script:
-  - ./scripts/travis-deps.sh
-  - phpenv config-rm xdebug.ini
+before_script: ./scripts/travis-deps.sh
 install:
   - php --ini
   - php -m
