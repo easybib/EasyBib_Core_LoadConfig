@@ -5,10 +5,6 @@ APC_VERSION=3.1.9
 
 CONFIGURE_ARGS="--silent --quiet"
 
-install_composer() {
-    wget http://getcomposer.org/composer.phar && php composer.phar install
-}
-
 install_ext_memcache() {
     wget "http://pecl.php.net/get/memcache-${MEMCACHE_VERSION}.tgz"
     tar -xzf "memcache-${MEMCACHE_VERSION}.tgz"
@@ -23,6 +19,5 @@ install_ext_apc() {
     echo "extension=apc.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 }
 
-install_composer
 install_ext_memcache
 install_ext_apc
