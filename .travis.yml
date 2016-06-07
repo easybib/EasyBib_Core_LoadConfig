@@ -1,5 +1,7 @@
 language: php
 before_script: ./scripts/travis-deps.sh
+install:
+  - php -ini
+  - php composer.phar install
 php:
-  - 5.3
-  - 5.4
+  - 5.6
