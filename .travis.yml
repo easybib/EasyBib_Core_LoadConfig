@@ -1,7 +1,10 @@
 language: php
-before_script: ./scripts/travis-deps.sh
+before_script:
+  - ./scripts/travis-deps.sh
+  - phpenv config-rm xdebug.ini
 install:
   - php --ini
+  - php -m
   - php composer.phar install
 php:
   - 5.6
