@@ -8,7 +8,7 @@ env:
 
 before_install:
   - phpenv config-rm xdebug.ini
-  - MODULES="apcu.so:apcu-${PHP_APCU_VERSION}" "memcache.so:memcache-${PHP_MEMCACHE_VERSION}" ./scripts/modulecache.sh
+  - MODULES="apcu.so:apcu-${PHP_APCU_VERSION} memcache.so:memcache-${PHP_MEMCACHE_VERSION}" ./scripts/modulecache.sh
 install:
   - php --ini
   - php -m
