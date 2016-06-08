@@ -1,5 +1,5 @@
 language: php
-before_script:
+before_install:
   - phpenv config-rm xdebug.ini
   - pecl install -f memcache-2.2.6
   - pecl install -f apc-3.1.9
