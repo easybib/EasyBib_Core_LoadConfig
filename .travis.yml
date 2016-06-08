@@ -1,8 +1,8 @@
 language: php
 before_install:
   - phpenv config-rm xdebug.ini
-  - pecl install -f memcache-2.2.6
-  - pecl install -f apc-3.1.9
+  - printf "yes\n" | pecl install -f memcache-2.2.6
+  - printf "yes\n" | pecl install -f apc-3.1.9
 install:
   - php --ini
   - php -m
