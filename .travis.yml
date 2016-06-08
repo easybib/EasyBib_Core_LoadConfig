@@ -1,5 +1,8 @@
 language: php
-before_script: ./scripts/travis-deps.sh
+before_script:
+  - phpenv config-rm xdebug.ini
+  - pecl install -f memcache-2.2.6
+  - pecl install -f apc-3.1.9
 install:
   - php --ini
   - php -m
