@@ -1,5 +1,16 @@
 language: php
-before_script: ./scripts/travis-deps.sh
 php:
-  - 5.3
-  - 5.4
+  - 5.6
+
+env:
+  - PHP_APCU_VERSION=4.0.10
+    PHP_MEMCACHE_VERSION=2.2.7
+
+before_install:
+  - phpenv config-rm xdebug.ini
+  - MODULES="apcu.so:apcu-${PHP_APCU_VERSION} memcache.so:memcache-${PHP_MEMCACHE_VERSION}" ./travis/modulecache.sh
+
+install:
+  - php --ini
+  - php -m
+  - php composer.phar install

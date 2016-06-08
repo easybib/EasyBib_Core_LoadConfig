@@ -5,7 +5,6 @@ if (!file_exists($autoloader)) {
     exit(1);
 }
 require_once $autoloader;
-require_once 'PHPUnit/Autoload.php';
 
 /**
  * @desc Define APPLICATION_PATH and point to fixtures!

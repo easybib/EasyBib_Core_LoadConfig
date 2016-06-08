@@ -1,11 +1,32 @@
 {
-    "hash": "5d437982080642e492f46bea556a617c",
-    "packages": [
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "c2baaa06c09110742a12473732a4bdaf",
+    "content-hash": "3b1f605c2b2b3d9219523ce89362e264",
+    "packages": [],
+    "packages-dev": [
         {
-            "package": "Zend",
-            "version": "1.11.11"
+            "name": "Zend",
+            "version": "1.11.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/easybib/zf1.git",
+                "reference": "85685af98192b2af8ddc27871b3d83aabb6f7efb"
+            },
+            "type": "library"
         }
     ],
-    "packages-dev": null,
-    "aliases": []
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.0",
+        "ext-apc": ">=3.1.9"
+    },
+    "platform-dev": []
 }
